@@ -1,0 +1,30 @@
+#!/bin/sh
+cd ${0%/*} || exit 1                        # Run from this directory
+
+echo "movingObject.foam"
+touch movingObject.foam
+
+echo "background blockMesh"
+blockMesh > log.blockMesh
+
+echo "topoSet refineMesh"
+for i in 1 2
+do
+    topoSet -dict system/topoSetDict.${i} > log.topoSetDict.${i}
+    refineMesh -dict system/refineMeshDict -overwrite > log.refineMesh.${i}
+done 
+rm -rf 0
+
+echo "mergeMeshes background + movingObject"
+mergeMeshes . ../movingObject -overwrite > log.mergeMeshes
+
+echo "background topoSet" 
+topoSet > log.topoSet
+
+echo "cp -r" 
+cp -R 0.orig 0
+
+echo "background setFields" 
+setFields > log.setFields
+
+#------------------------------------------------------------------------------
