@@ -31,7 +31,7 @@ patchLocalCoeffs
     tan1            (1 0 0);
 }
 
-directions      (tan1 tan2 normal );
+directions      (tan1 tan2 );
 
 useHexTopology  no;
 
