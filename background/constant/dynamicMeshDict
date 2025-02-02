@@ -25,7 +25,7 @@ multiSolidBodyMotionSolverCoeffs
     movingZone
     {
         solidBodyMotionFunction linearMotion;
-		velocity (0 -5 0);
+		velocity (0 -20 0);
 		
 		/*oscillatingLinearMotion;
         oscillatingLinearMotionCoeffs
