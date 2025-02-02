@@ -1,0 +1,13 @@
+#!/bin/sh
+cd ${0%/*} || exit 1                        # Run from this directory
+
+# moving Object mesh
+echo "-----> START moving Object meshing"
+(cd movingObject && ./Allrun.pre)
+echo "-----> END moving Object meshing"
+
+# Add background mesh and prepare case
+echo "background meshing and case preparation"
+(cd background && ./Allrun.pre)
+echo "END background meshing and case preparation"
+#------------------------------------------------------------------------------
