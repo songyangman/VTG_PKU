@@ -1,0 +1,83 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1812                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+scale   1;
+
+X0	-3.5;
+Y0	0.1;
+Z0	-0.0005;
+
+X1	3.5;
+Y1	3;
+Z1	0.0005;
+
+nx	30;
+ny	15;
+nz	1;
+
+vertices
+(
+    ($X0 $Y0 $Z0)
+    ($X1 $Y0 $Z0)
+    ($X1 $Y1 $Z0)
+    ($X0 $Y1 $Z0)
+    ($X0 $Y0 $Z1)
+    ($X1 $Y0 $Z1)
+    ($X1 $Y1 $Z1)
+    ($X0 $Y1 $Z1)
+);
+
+blocks
+(
+    hex (0 1 2 3 4 5 6 7) movingZone ($nx $ny $nz) simpleGrading (1 1 1)
+);
+
+edges
+(
+);
+
+boundary
+(
+    oversetPatch
+    {
+        type overset;
+        faces
+        (
+            (0 3 2 1)
+            (2 6 5 1)
+            (0 4 7 3)
+            (4 5 6 7)
+        );
+    }
+    frontAndBack
+    {
+        type empty;
+        faces
+        (
+            (1 5 4 0)
+            (3 7 6 2)
+        );
+    }
+    // to be filled by subsetMesh
+    movingObject
+    {
+        type wall;
+        faces ();
+    }
+
+);
+
+// ************************************************************************* //

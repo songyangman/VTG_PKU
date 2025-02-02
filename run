@@ -1,0 +1,21 @@
+#!/bin/sh
+cd ${0%/*} || exit 1                        # Run from this directory
+
+echo "generateMesh"
+
+./generateMesh
+
+echo "END mesh generation and case preparation....."
+
+echo "Start Running"
+
+echo "Decompose case on 32 cores"
+(cd background && decomposePar -force > log.decomposePar)
+echo "RenumberMesh for parallelisation optimization"
+(cd background && mpirun -np 32 renumberMesh -parallel -overwrite > log.renumberMesh)
+(echo "Run overInterDyMFoam on 32 cores :" && date)
+(cd background && mpirun -np 32 overInterDyMFoam -parallel > log.overInterDyMFoam)
+(echo "End of solver calculation :" && date)
+
+echo "END Processing"
+#------------------------------------------------------------------------------
