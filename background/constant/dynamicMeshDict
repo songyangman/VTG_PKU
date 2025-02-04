@@ -24,8 +24,8 @@ multiSolidBodyMotionSolverCoeffs
 {
     movingZone
     {
-        /* solidBodyMotionFunction linearMotion;
-		velocity (0 20 0);
+        solidBodyMotionFunction linearMotion;
+		velocity (0 100 0);
 		
 		/*oscillatingLinearMotion;
         oscillatingLinearMotionCoeffs
@@ -34,12 +34,12 @@ multiSolidBodyMotionSolverCoeffs
             omega           2.5;
         }*/ 
 
-        solidBodyMotionFunction oscillatingLinearMotion;
+        /*solidBodyMotionFunction oscillatingLinearMotion;
         oscillatingLinearMotionCoeffs
         {
             amplitude       (0 2 0); //displacement
             omega           100; //velocity
-        }
+        }*/
     }
 }
 
