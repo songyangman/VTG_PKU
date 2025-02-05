@@ -26,6 +26,10 @@ boundaryField
     {
         type            noSlip;
     }
+    dummyPatch
+    {
+    	type		noSlip;
+    }
     top
     {
         type            pressureInletOutletVelocity;

@@ -26,6 +26,10 @@ boundaryField
     {
         type            fixedFluxPressure;
     }
+    dummyPatch
+    {
+    	type		fixedFluxPressure;
+    }
     top
     {
         type            totalPressure;

@@ -27,6 +27,11 @@ boundaryField
         type            nutkWallFunction;
         value           uniform 0;
     }
+    dummyPatch
+    {
+    	type		nutkWallFunction;
+    	value		uniform 0;
+    }
     top
     {
         type            calculated;

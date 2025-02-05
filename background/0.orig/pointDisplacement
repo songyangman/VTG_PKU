@@ -32,6 +32,11 @@ boundaryField
         type            fixedValue;
         value           uniform (0 0 0);
     }
+    dummyPatch
+    {
+    	type		fixedValue;
+    	value		uniform (0 0 0);
+    }
     movingObject
     {
         type            zeroGradient;

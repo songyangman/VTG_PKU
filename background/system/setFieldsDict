@@ -25,7 +25,7 @@ Y0		 0;
 Z0		 -10;
 
 X1		 10;
-Y1		 7;  //5water level
+Y1		 3;  //5water level
 Z1		 10;
 
 
@@ -55,7 +55,7 @@ regions
 
     boxToCell
     {
-        box (-2 0 -0.01) (2 0.8 0.01);
+        box (-1.4 0 -0.01) (1.4 0.6 0.01);
         fieldValues 
         ( 
             volScalarFieldValue alpha.water 0

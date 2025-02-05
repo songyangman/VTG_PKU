@@ -27,6 +27,11 @@ boundaryField
         type            epsilonWallFunction;
         value           uniform 0.1;
     }
+    dummyPatch
+    {
+    	type		epsilonWallFunction;
+    	value		uniform 0.1;
+    }
     top
     {
         type            zeroGradient;

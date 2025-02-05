@@ -1,0 +1,22 @@
+#!/bin/sh
+cd ${0%/*} || exit 1                        # Run from this directory
+
+echo "dummy.foam"
+touch dummy.foam
+
+echo "movingObject blockMesh"
+blockMesh > log.blockMesh
+
+echo "topoSet refineMesh"
+for i in 1 2
+do
+    topoSet -dict system/topoSetDict.${i} > log.topoSetDict.${i}
+    #refineMesh -dict system/refineMeshDict -overwrite > log.refineMesh.${i}
+done
+rm -rf 0
+echo "movingObject topoSet"
+topoSet > log.topoSet
+
+echo "subsetMesh"
+subsetMesh -overwrite dummy -patch dummyPatch > log.subsetMesh
+#------------------------------------------------------------------------------

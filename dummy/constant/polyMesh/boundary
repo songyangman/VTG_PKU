@@ -1,43 +1,37 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v1812                                 |
-|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|  \\    /   O peration     | Version:  2406                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
     version     2.0;
     format      ascii;
-    class       volScalarField;
-    object      zoneID;
+    arch        "LSB;label=32;scalar=64";
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 0 0 0 0 0 0];
-
-internalField   uniform 0;
-
-boundaryField
-{
-    #includeEtc "caseDicts/setConstraintTypes"
-
-    walls
+2
+(
+    dummy
     {
-        type            zeroGradient;
+        type            empty;
+        inGroups        1(empty);
+        nFaces          20400;
+        startFace       19800;
     }
     dummyPatch
     {
-    	type		zeroGradient;
+        type            wall;
+        inGroups        1(wall);
+        nFaces          0;
+        startFace       40200;
     }
-    top
-    {
-        type            zeroGradient;
-    }
-    movingObject
-    {
-        type            zeroGradient;
-    }
-}
+)
 
 // ************************************************************************* //

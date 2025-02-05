@@ -27,6 +27,11 @@ boundaryField
         type            kqRWallFunction;
         value           uniform 0.01;
     }
+    dummyPatch
+    {
+    	type		kqRWallFunction;
+    	value		uniform 0.01;
+    }
     top
     {
         type            zeroGradient;
