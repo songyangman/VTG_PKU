@@ -11,7 +11,7 @@ echo "topoSet refineMesh"
 for i in 1 2
 do
     topoSet -dict system/topoSetDict.${i} > log.topoSetDict.${i}
-    refineMesh -dict system/refineMeshDict -overwrite > log.refineMesh.${i}
+    #refineMesh -dict system/refineMeshDict -overwrite > log.refineMesh.${i}
 done
 rm -rf 0
 echo "movingObject topoSet"
