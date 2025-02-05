@@ -55,11 +55,18 @@ oversetInterpolation
 {
 //    method          cellVolumeWeight;
     method          inverseDistance;
+    searchBox (-2 -20 -0.02) (2 0.8 0.02);
+searchBoxDivisions  (200 200 1);
+holeLayers          4;
+useLayer            2;
 
+<<<<<<< HEAD
     searchBox (-4 -10 -0.1) (4 20 0.1);
     searchBoxDivisions  (100 100 1);
     holeLayers          4;
     useLayer            2;
+=======
+>>>>>>> 146e24994ec2a428bb7fb3ac6e36daf18435f9b6
 }
 
 oversetInterpolationSuppressed

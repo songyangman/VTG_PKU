@@ -78,7 +78,7 @@ PIMPLE
 {
     momentumPredictor   no;
     nOuterCorrectors    2;
-    nCorrectors         4;
+    nCorrectors         3;
     nNonOrthogonalCorrectors 0;
 
     ddtCorr                    yes;
@@ -98,13 +98,6 @@ relaxationFactors
     }
     equations
     {
-        U               0.5;
-        k               0.5;
-        epsilon         0.5;
-
-        UFinal          1.0;
-        kFinal          1.0;
-        epsilonFinal    1.0;
     }
 }
 
