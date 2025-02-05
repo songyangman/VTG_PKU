@@ -21,13 +21,17 @@ defaultFieldValues
 );
 
 X0		 -10;
-Y0		 -10;
+Y0		 0;
 Z0		 -10;
 
 X1		 10;
-Y1		 10;  //5water level
+Y1		 7;  //5water level
 Z1		 10;
 
+
+// X2  
+// Y2  
+// Z2  
 
 regions
 (
@@ -39,6 +43,33 @@ regions
             volScalarFieldValue alpha.water 1 
         );
     }
+
+    // boxToCell
+    // {
+    //     box (-2 0 -0.01) (2 0.8 0.01);
+    //     fieldValues 
+    //     ( 
+    //         volScalarFieldValue alpha.water 0
+    //     );
+    // }
+
+    boxToCell
+    {
+        box (-2 0 -0.01) (2 0.8 0.01);
+        fieldValues 
+        ( 
+            volScalarFieldValue alpha.water 0
+        );
+    }
+
+    /*boxToCell
+    {
+        box (1.4 0 -0.01) (2 0.2 0.01);
+        fieldValues 
+        ( 
+            volScalarFieldValue alpha.water 0
+        );
+    }*/
 
     cellToCell
     {
