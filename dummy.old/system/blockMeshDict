@@ -9,33 +9,69 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       volScalarField;
-    object      epsilon;
+    class       dictionary;
+    object      blockMeshDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+scale   1;
 
-dimensions      [0 2 -3 0 0 0 0];
+X0	-10.0;
+Y0	-20.00;
+Z0	-0.01;
 
-internalField   uniform 0.1;
+X1	10.0;
+Y1	0;
+Z1	0.01;
 
-boundaryField
-{
-    #includeEtc "caseDicts/setConstraintTypes"
+nx	100;
+ny	100;
+nz	1;
 
-    "(left_1|bottom_1|right_3|bottom_3|left_4|right_4|bottom_4)"
+vertices
+(
+    ($X0 $Y0 $Z0)
+    ($X1 $Y0 $Z0)
+    ($X1 $Y1 $Z0)
+    ($X0 $Y1 $Z0)
+    ($X0 $Y0 $Z1)
+    ($X1 $Y0 $Z1)
+    ($X1 $Y1 $Z1)
+    ($X0 $Y1 $Z1)
+);
+
+blocks
+(
+    hex (0 1 2 3 4 5 6 7) dummy ($nx $ny $nz) simpleGrading (1 1 1)
+);
+
+edges
+(
+);
+
+boundary
+(
+
+    dummy
     {
-        type            epsilonWallFunction;
-        value           uniform 0.1;
+        type empty;
+        faces
+        (
+            (2 6 5 1)
+            (0 4 7 3)
+            (1 5 4 0)
+            (2 3 7 6)
+            (0 3 2 1)
+            (4 5 6 7)
+        );
     }
-    "(top_1|top_2|top_3|top_4|bottom_2|right_1|left_2|right_2|left_3)"
+    
+    dummyPatch
     {
-        type            zeroGradient;
+        type wall;
+        faces ();
     }
-    movingObject
-    {
-        type            epsilonWallFunction;
-        value           uniform 0.1;
-    }
-}
+
+
+);
 
 // ************************************************************************* //
