@@ -1,0 +1,43 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1812                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      nut;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 1e-5;
+
+boundaryField
+{
+    #includeEtc "caseDicts/setConstraintTypes"
+
+    "(left_1|bottom_1|right_3|bottom_3|left_4|right_4|bottom_4)"
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+    "(top_1|top_2|top_3|top_4|bottom_2|right_1|left_2|right_2|left_3)"
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    movingObject
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+
+}
+
+// ************************************************************************* //
