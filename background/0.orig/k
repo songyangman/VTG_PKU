@@ -22,17 +22,14 @@ boundaryField
 {
     #includeEtc "caseDicts/setConstraintTypes"
 
-    walls
+    "(left_1|bottom_1|right_3|bottom_3|left_4|right_4|bottom_4)"
     {
         type            kqRWallFunction;
         value           uniform 0.01;
     }
-    dummyPatch
-    {
-    	type		kqRWallFunction;
-    	value		uniform 0.01;
-    }
-    top
+
+
+    "(top_1|top_2|top_3|top_4|bottom_2|right_1|left_2|right_2|left_3)"
     {
         type            zeroGradient;
     }

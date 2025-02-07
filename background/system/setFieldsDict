@@ -21,7 +21,7 @@ defaultFieldValues
 );
 
 X0		 -10;
-Y0		 0;
+Y0		 -20;
 Z0		 -10;
 
 X1		 10;
@@ -44,32 +44,15 @@ regions
         );
     }
 
+
     // boxToCell
     // {
-    //     box (-2 0 -0.01) (2 0.8 0.01);
+    //     box (-2 0 -0.01) (2 2 0.01);
     //     fieldValues 
     //     ( 
     //         volScalarFieldValue alpha.water 0
     //     );
     // }
-
-    boxToCell
-    {
-        box (-1.4 0 -0.01) (1.4 0.6 0.01);
-        fieldValues 
-        ( 
-            volScalarFieldValue alpha.water 0
-        );
-    }
-
-    /*boxToCell
-    {
-        box (1.4 0 -0.01) (2 0.2 0.01);
-        fieldValues 
-        ( 
-            volScalarFieldValue alpha.water 0
-        );
-    }*/
 
     cellToCell
     {
