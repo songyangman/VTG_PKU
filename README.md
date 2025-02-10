@@ -6,3 +6,10 @@ VTG movement 구현에 성공하였음.
 2. water depth와 probe location 설정
 3. k-epsilon value가 적절한지 tuning
 4. mesh 세세하게.. y+ value control (velocity와 cell length 재설정)
+
+VTG spec
+Diameter: 1.2m
+delta s: 0.305(fixed)
+hc(height): 0.725m
+
+water depth: 1.03~1.27m
