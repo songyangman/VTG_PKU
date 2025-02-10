@@ -24,18 +24,25 @@ multiSolidBodyMotionSolverCoeffs
 {
     movingZone
     {
+        // 다른 motion 옵션은 주석 처리되어 있음.
         // solidBodyMotionFunction linearMotion;
-		// velocity (0 10 0);
-		
+        // velocity (0 10 0);
 
-        solidBodyMotionFunction oscillatingLinearMotion;
+        /*solidBodyMotionFunction oscillatingLinearMotion;
         oscillatingLinearMotionCoeffs
         {
-            amplitude       (0 5 0); //displacement
-            omega           5; //velocity
+            amplitude       (0 5 0); // displacement
+            omega           5;        // velocity
+        }*/
+
+        // 순수 평행 이동을 외부 파일에서 지정하기 위해 tabulated6DoFMotion 사용:
+        solidBodyMotionFunction    tabulated6DoFMotion;
+        tabulated6DoFMotionCoeffs
+        {
+            CofG             (0 -4.0 0);
+            timeDataFileName "$FOAM_CASE/constant/movingZone.dat";
         }
     }
 }
-
 
 // ************************************************************************* //

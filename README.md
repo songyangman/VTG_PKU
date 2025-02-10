@@ -13,3 +13,6 @@ delta s: 0.305(fixed)
 hc(height): 0.725m
 
 water depth: 1.03~1.27m
+
+.dat
+// (time ((xTrans yTrans zTrans) (xRot yRot zRot)))  // 주석은 파일 내에 포함되지 않아야 함
