@@ -14,7 +14,19 @@ hc(height): 0.725m
 
 water depth: 1.03~1.27m
 
+수위는 0.05m 적어도 이하로 표현이 가능해야하고 delta s 도 0.305m 이므로 해당 최소단위인 0.005 크기의 해상도는 갖춰야 함
+0.05 크기로 진행했을 때는 계산시간이 대략 3시간 걸렸음
+
+
+수정할 것들?
+1. 수위: 1.00 1.05 1.10 1.15 1.20 1.25 (6개), 프루드 수 조합(Vsp) > spike 발생 시의 vtg 속도... 총 몇 개의 case로 나눈 combination을 만들건지?
+2. 위에 명시해둔 VTG spec을 따라서..
+3. interFoam 사용 시 spike, 즉 물기둥의 모습을 획득하는데는 한계가 있음.(사실상 interFoam 이 아닌 유한체적법의 한계..) > 일단 geometry 만들고 해당 부분에 단계적인 refinement 수행
+4. background의 movement 부분의 불필요하게 넓은 영역 정리
+5. 경험상.. spike 관찰을 위해서 양옆 wall의 간격은 VTG 직경의 3배 (3.6m) 정도면 괜찮지 않을까 추측 > 파랑실험장치의 wavelength에 따른 wall과 측정지점에서의 거리 관련 실험 찾아보기
+6. wall boundary condition > relaxation zone? 아마 기억상 해당 BC는 waves2Foam library에 속하던것으로 기억...
+
 .dat
 // (time ((xTrans yTrans zTrans) (xRot yRot zRot)))  // 주석은 파일 내에 포함되지 않아야 함
 
-test
+
