@@ -1,0 +1,108 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2406                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    arch        "LSB;label=32;scalar=64";
+    class       volScalarField;
+    location    "constant";
+    object      yPlus;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    left_1
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    frontAndBack_1
+    {
+        type            empty;
+    }
+    top_1
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    bottom_1
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    frontAndBack_2
+    {
+        type            empty;
+    }
+    top_2
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    right_3
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    frontAndBack_3
+    {
+        type            empty;
+    }
+    top_3
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    bottom_3
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    left_4
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    right_4
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    frontAndBack_4
+    {
+        type            empty;
+    }
+    bottom_4
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+    oversetPatch
+    {
+        type            overset;
+        value           uniform 0;
+    }
+    frontAndBack
+    {
+        type            empty;
+    }
+    movingObject
+    {
+        type            calculated;
+        value           uniform 0;
+    }
+}
+
+
+// ************************************************************************* //
