@@ -1,3 +1,9 @@
+https://youtu.be/mv_n4c_VfoI
+
+[](https://youtu.be/mv_n4c_VfoI
+)
+![image](https://github.com/user-attachments/assets/416d9d76-f195-445a-b499-95d278277d88)
+
 VTG movement 구현에 성공하였음.
 1. VTG size와 movement설정
 -현재 진행중
